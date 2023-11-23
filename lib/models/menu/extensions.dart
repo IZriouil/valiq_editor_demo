@@ -73,39 +73,50 @@ extension ThemeConfigurationExtension on ThemeConfigurationModel {
     Color textColor = generatedTextColor;
     Color backgroundVariantColor = generatedBackgroundVariantColor;
 
-    // TextStyle titles = GoogleFonts.asMap().entries.firstWhere((element) => element.key == titleFontFamily).value();
-
     return ThemeData(
         textTheme: TextTheme(
-          displayLarge: GoogleFonts.bebasNeue(
+          displayLarge: GoogleFonts.getFont(titlesFont!,
               fontSize: 73, fontWeight: FontWeight.w300, letterSpacing: -1.5, color: textColor),
-          displayMedium: GoogleFonts.bebasNeue(
+          displayMedium: GoogleFonts.getFont(
+            titlesFont!,
             fontSize: 46,
             fontWeight: FontWeight.w300,
             letterSpacing: -0.5,
             color: textColor,
           ),
-          displaySmall: GoogleFonts.bebasNeue(fontSize: 36, fontWeight: FontWeight.w400, color: textColor),
-          headlineLarge: GoogleFonts.bebasNeue(
+          displaySmall:
+              GoogleFonts.getFont(titlesFont!, fontSize: 36, fontWeight: FontWeight.w400, color: textColor),
+          headlineLarge: GoogleFonts.getFont(
+            titlesFont!,
             fontSize: 32,
             fontWeight: FontWeight.w400,
             color: textColor,
           ),
-          headlineMedium: GoogleFonts.bebasNeue(
+          headlineMedium: GoogleFonts.getFont(
+            titlesFont!,
             fontSize: 26,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.25,
             color: textColor,
           ),
-          headlineSmall: GoogleFonts.bebasNeue(fontSize: 22, fontWeight: FontWeight.w400, color: textColor),
-          titleLarge: GoogleFonts.bebasNeue(fontSize: 20, fontWeight: FontWeight.w500, color: textColor),
-          titleMedium: GoogleFonts.mulish(fontSize: 16, fontWeight: FontWeight.w700, color: textColor),
-          titleSmall: GoogleFonts.mulish(fontSize: 14, fontWeight: FontWeight.w500, color: textColor),
-          bodyLarge: GoogleFonts.mulish(fontSize: 17, fontWeight: FontWeight.w400, color: textColor),
-          bodyMedium: GoogleFonts.mulish(fontSize: 15, fontWeight: FontWeight.w400, color: textColor),
-          labelLarge: GoogleFonts.mulish(fontSize: 15, fontWeight: FontWeight.w700, color: textColor),
-          bodySmall: GoogleFonts.mulish(fontSize: 13, fontWeight: FontWeight.w400, color: textColor),
-          labelSmall: GoogleFonts.mulish(fontSize: 11, fontWeight: FontWeight.w400, color: textColor),
+          headlineSmall:
+              GoogleFonts.getFont(titlesFont!, fontSize: 22, fontWeight: FontWeight.w400, color: textColor),
+          titleLarge:
+              GoogleFonts.getFont(titlesFont!, fontSize: 20, fontWeight: FontWeight.w500, color: textColor),
+          titleMedium:
+              GoogleFonts.getFont(bodyFont!, fontSize: 16, fontWeight: FontWeight.w700, color: textColor),
+          titleSmall:
+              GoogleFonts.getFont(bodyFont!, fontSize: 14, fontWeight: FontWeight.w500, color: textColor),
+          bodyLarge:
+              GoogleFonts.getFont(bodyFont!, fontSize: 17, fontWeight: FontWeight.w400, color: textColor),
+          bodyMedium:
+              GoogleFonts.getFont(bodyFont!, fontSize: 15, fontWeight: FontWeight.w400, color: textColor),
+          labelLarge:
+              GoogleFonts.getFont(bodyFont!, fontSize: 15, fontWeight: FontWeight.w700, color: textColor),
+          bodySmall:
+              GoogleFonts.getFont(bodyFont!, fontSize: 13, fontWeight: FontWeight.w400, color: textColor),
+          labelSmall:
+              GoogleFonts.getFont(bodyFont!, fontSize: 11, fontWeight: FontWeight.w400, color: textColor),
         ),
         colorScheme: scheme.copyWith(
           primary: brandColor,

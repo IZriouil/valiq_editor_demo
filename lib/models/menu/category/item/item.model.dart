@@ -67,7 +67,7 @@ class ItemModel {
         name = faker.food.dish(),
         description = faker.lorem.sentence(),
         image = faker.image.image(keywords: ['food'], random: true),
-        price = faker.randomGenerator.decimal(scale: 100),
+        price = faker.randomGenerator.decimal(),
         discount = faker.randomGenerator.decimal(),
         rating = faker.randomGenerator.decimal(scale: 5),
         position = faker.randomGenerator.integer(10, min: 1),

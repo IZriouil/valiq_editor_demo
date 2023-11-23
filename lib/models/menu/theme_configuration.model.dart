@@ -15,10 +15,15 @@ class ThemeConfigurationModel {
 
   String? code;
 
+  String? titlesFont;
+  String? bodyFont;
+
   ThemeConfigurationModel({
     required this.brandColor,
     this.code,
     this.brightness,
+    this.titlesFont,
+    this.bodyFont,
   });
 
   factory ThemeConfigurationModel.fromJson(Map<String, dynamic> json) =>
@@ -33,13 +38,18 @@ class ThemeConfigurationModel {
           runtimeType == other.runtimeType &&
           brandColor == other.brandColor &&
           code == other.code &&
+          titlesFont == other.titlesFont &&
+          bodyFont == other.bodyFont &&
           brightness == other.brightness;
 
   @override
-  int get hashCode => brandColor.hashCode ^ brightness.hashCode ^ code.hashCode;
+  int get hashCode =>
+      brandColor.hashCode ^ brightness.hashCode ^ code.hashCode ^ titlesFont.hashCode ^ bodyFont.hashCode;
 
   static ThemeConfigurationModel vali() => ThemeConfigurationModel(
         brandColor: kBrandColor,
+        titlesFont: "Bebas Neue",
+        bodyFont: "Mulish",
       );
 
   // copyWith
@@ -47,25 +57,37 @@ class ThemeConfigurationModel {
     Color? brandColor,
     Brightness? brightness,
     String? code,
+    String? titlesFont,
+    String? bodyFont,
   }) {
     return ThemeConfigurationModel(
       brandColor: brandColor ?? this.brandColor,
       brightness: brightness ?? this.brightness,
       code: code ?? this.code,
+      titlesFont: titlesFont ?? this.titlesFont,
+      bodyFont: bodyFont ?? this.bodyFont,
     );
   }
 
   // empty
   static ThemeConfigurationModel empty() => ThemeConfigurationModel(
         brandColor: kBrandColor,
+        titlesFont: "Bebas Neue",
+        bodyFont: "Mulish",
       );
 
   ThemeConfigurationModel resetBrightness() {
-    return ThemeConfigurationModel(brandColor: brandColor, brightness: null);
+    return ThemeConfigurationModel(
+        brandColor: brandColor, brightness: null, code: code, titlesFont: titlesFont, bodyFont: bodyFont);
   }
 
   ThemeConfigurationModel resetCode() {
-    return ThemeConfigurationModel(brandColor: brandColor, brightness: brightness, code: null);
+    return ThemeConfigurationModel(
+        brandColor: brandColor,
+        brightness: brightness,
+        code: null,
+        titlesFont: titlesFont,
+        bodyFont: bodyFont);
   }
 
   static Color _colorFromJson(String hex) => HexColor(hex);
