@@ -11,7 +11,7 @@ class WhisperWindCategoryItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 320,
       width: 230,
       child: Stack(
         alignment: Alignment.topCenter,
@@ -31,17 +31,19 @@ class WhisperWindCategoryItemCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ).paddingH,
                   const SizedBox(height: kDefaultPadding / 2),
-                  Text(
-                    item.description!,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 3,
-                  ).paddingH,
+                  SingleChildScrollView(
+                    child: Text(
+                      item.description!,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ).paddingH,
+                  ),
                   const Spacer(),
                   Row(
                     children: [
                       Text(
-                        "\$${(item.price * 100).toStringAsFixed(2)}",
+                        "${(item.price * 100).toStringAsFixed(2)}€",
                         style: Theme.of(context).textTheme.titleMedium,
                       ).paddingH,
                       const Spacer(),

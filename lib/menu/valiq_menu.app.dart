@@ -10,7 +10,10 @@ import 'package:valiq_editor_demo/utils/extensions/widget.extension.dart';
 import 'package:valiq_editor_demo/widgets/error.widget.dart';
 
 class ValiqMenuApplication extends StatelessWidget {
+  /// The menu configuration to use if coming from the editor.
   final MenuModel? menu;
+
+  /// The ID of the menu if coming from QR Code.
   final String? menuId;
   const ValiqMenuApplication({super.key, this.menu, this.menuId}) : assert(menu != null || menuId != null);
 
@@ -24,17 +27,20 @@ class ValiqMenuApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (menu != null) {
+      // If the menu is not null, we are coming from the editor.
+      logger.i("Menu data taken from editor");
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: menu!.entity.name,
-        restorationScopeId: menu!.id,
+        // restorationScopeId: menu!.id,
         theme: menu!.theme.data,
         home: homePage(menu!),
       );
     }
 
+    // If the menu is null, we are coming from a QR Code, we need to fetch the menu as a stream to catch changes.
     return StreamBuilder<MenuModel?>(
-        stream: locator<MenuService>().getMenuStream("MENU_ID"),
+        stream: locator<MenuService>().getMenuStream(menuId!),
         builder: (context, menuSnapshot) {
           if (menuSnapshot.hasError) {
             logger.e(menuSnapshot.error);

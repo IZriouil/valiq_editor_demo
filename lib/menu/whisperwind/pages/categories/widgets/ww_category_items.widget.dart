@@ -45,11 +45,12 @@ class _WhisperWindCategoryItemsState extends State<WhisperWindCategoryItems> {
     return Column(children: [
       Row(
         children: [
-          Text(
-            activeCategory.name,
-            style: Theme.of(context).textTheme.headlineLarge,
+          Expanded(
+            child: Text(
+              activeCategory.name,
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
           ),
-          const Spacer(),
           Icon(
             Icons.search,
             color: Theme.of(context).colorScheme.primary,
