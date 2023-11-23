@@ -28,6 +28,7 @@ class EditorThemeSection extends StatelessWidget {
       ),
     ];
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         ...themes.map(
           (t) => ThemeCard(
@@ -65,7 +66,7 @@ class ThemeCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(kDefaultPadding / 4),
         side: BorderSide(
           color: Theme.of(context).dividerColor,
-          width: .5,
+          width: 1,
         ),
       ),
       margin: const EdgeInsets.only(bottom: kDefaultPadding),
@@ -115,21 +116,21 @@ class ThemeCard extends StatelessWidget {
                 fontWeight: FontWeight.w500),
           ),
           const SizedBox(height: kDefaultPadding / 2),
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(kDefaultPadding / 4),
-              border: Border.all(
-                color: Theme.of(context).colorScheme.outlineVariant,
-                width: .5,
-              ),
-              image: DecorationImage(
-                image: NetworkImage(theme.image),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
+          // Container(
+          //   height: 200,
+          //   width: double.infinity,
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(kDefaultPadding / 4),
+          //     border: Border.all(
+          //       color: Theme.of(context).colorScheme.outlineVariant,
+          //       width: .5,
+          //     ),
+          //     image: DecorationImage(
+          //       image: NetworkImage(theme.image),
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           Visibility(
             visible: !active,
             child: Padding(

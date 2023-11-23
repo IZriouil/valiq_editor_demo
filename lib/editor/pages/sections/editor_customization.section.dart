@@ -47,15 +47,15 @@ class EditorCustomizationSection extends StatelessWidget {
         SegmentedButton<String>(
           multiSelectionEnabled: false,
           onSelectionChanged: (fonts) {
-            // ThemeConfigurationModel newTheme = theme.copyWith(font: fonts.single);
-            // context.read<MenuCubit>().updateThemeConfiguration(newTheme);
+            ThemeConfigurationModel newTheme = theme.copyWith(titlesFont: fonts.single);
+            context.read<MenuCubit>().updateThemeConfiguration(newTheme);
           },
           segments: const [
             ButtonSegment<String>(value: "Roboto", label: Text("Roboto")),
             ButtonSegment<String>(value: "Montserrat", label: Text("Montserrat")),
             ButtonSegment<String>(value: "Bebas Neue", label: Text("Bebas Neue")),
           ],
-          selected: {'Bebas Neue'},
+          selected: {theme.titlesFont!},
         ),
         const SizedBox(height: kDefaultPadding / 2),
         Text("Body/Text Fonts",
@@ -67,15 +67,15 @@ class EditorCustomizationSection extends StatelessWidget {
         SegmentedButton<String>(
           multiSelectionEnabled: false,
           onSelectionChanged: (fonts) {
-            // ThemeConfigurationModel newTheme = theme.copyWith(font: fonts.single);
-            // context.read<MenuCubit>().updateThemeConfiguration(newTheme);
+            ThemeConfigurationModel newTheme = theme.copyWith(bodyFont: fonts.single);
+            context.read<MenuCubit>().updateThemeConfiguration(newTheme);
           },
           segments: const [
             ButtonSegment<String>(value: "Roboto", label: Text("Roboto")),
             ButtonSegment<String>(value: "Mulish", label: Text("Mulish")),
             ButtonSegment<String>(value: "Questrial", label: Text("Questrial")),
           ],
-          selected: {'Mulish'},
+          selected: {theme.bodyFont!},
         ),
         const SizedBox(height: kDefaultPadding),
         Text("Theme brightness",

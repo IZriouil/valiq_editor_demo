@@ -39,6 +39,7 @@ class EditorHeaderWidget extends StatelessWidget {
             },
           ),
           const Spacer(),
+          Text("Apexive Demo").paddingH,
           const CircleAvatar(backgroundImage: NetworkImage(kDefaultAvatarImage)),
           const SizedBox(width: kDefaultPadding),
         ],

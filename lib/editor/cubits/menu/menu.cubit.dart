@@ -7,6 +7,26 @@ import 'package:valiq_editor_demo/models/menu/qr_code_configuration.model.dart';
 import 'package:valiq_editor_demo/models/menu/theme_configuration.model.dart';
 import 'package:valiq_editor_demo/services/menu.service.dart';
 
+/// The [MenuCubit] class is responsible for managing the state of the menu in the Valiq Editor Demo.
+/// It extends the [Cubit] class and holds a nullable [MenuModel] as its state.
+///
+/// The [MenuCubit] requires a [menuId] and an optional [isAnonymous] parameter.
+/// The [menuId] is used to fetch the menu from the [MenuService].
+/// The [isAnonymous] parameter indicates whether the user is anonymous or not.
+///
+/// The [MenuCubit] has several getter methods to check if certain parts of the menu have been modified.
+/// - [modified] returns true if the menu has been modified.
+/// - [themeConfigEdited] returns true if the theme configuration has been edited.
+/// - [qrCodeConfigEdited] returns true if the QR code configuration has been edited.
+/// - [entityEdited] returns true if the entity has been edited.
+/// - [ready] returns true if the menu has finished loading and is ready to be displayed.
+///
+/// The [MenuCubit] provides several methods to update the menu state:
+/// - [fetchMenu] fetches the menu from the [MenuService] and updates the state.
+/// - [updateThemeConfiguration] updates the theme configuration of the menu.
+/// - [updateQRCodeConfiguration] updates the QR code configuration of the menu.
+/// - [updateEntity] updates the entity of the menu.
+/// - [saveEntity] saves the entity to the [MenuService] and updates the state.
 class MenuCubit extends Cubit<MenuModel?> {
   final String menuId;
   final bool isAnonymous;
