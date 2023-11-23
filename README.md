@@ -1,10 +1,11 @@
 # VALIQ Menu Editor Module 🍽️✨
 
 Hey there! Welcome to the VALIQ Menu Editor Module repository! This module is part of the awesome VALIQ project, helping restaurants, cafes, and similar spots create cool digital menus accessible via QR codes
-[Learn more about VALIQ Project ?](https://valiq-bef3e.web.app/)
 ![Menu Editor Demo](https://valiq-bef3e.web.app/hero_qrs.png)
 
-> NOTE: This Github project (VALIQ Editor) is created as a submission to the Apexive team for their review and feedback. it doesn't contain all the modules for VALIQ Project.
+[Learn more about VALIQ Project ?](https://valiq-bef3e.web.app/)
+
+> NOTE: This Github project (VALIQ Editor) is created as a submission to the **Apexive team** for their review and feedback. it doesn't contain all the modules for VALIQ Project such as Admin Module / QR Code Scan Module
 
 ## Overview 🌟
 
@@ -13,8 +14,20 @@ The Menu Editor Module in VALIQ is your creative space! It's designed to make cr
 ## Features 🚀
 
 - **Visual Editor**: Customize your menu's look effortlessly with 2 predefined themes.
-- **Theme Customization**: Easily edit colors, fonts to your theme.
+- **Theme Customization**: Easily edit colors, fonts and brightness to your theme.
 - **Preview Mode**: See how your menu and QR Code looks instantly (Mobile/Tablet) .
+
+## Dependencies 🧩
+
+This project relies on several key dependencies to power its functionality:
+
+- **Flutter Bloc**: State Management.
+- **Get It**: Centralize Services Location / Singletons.
+- **Firebase Dependencies**: Core, Auth, Firestore - Not really used in this demo because anonymous auth is forced.
+- Forked/Custom **QR Flutter**: a custom version for the package QR Flutter in order to achieve some stunning QR Codes instead of the basics.
+- **Logger**: To handle info/debug logging operaitons.
+- **Feathers Icons**: Favourite Icon Library.
+- **Google Font**.
 
 ## Getting Started 🏁
 
