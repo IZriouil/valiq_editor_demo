@@ -26,83 +26,8 @@ class _MenuPreviewSectionState extends State<MenuPreviewSection> {
 
     return Container(
         color: Theme.of(context).colorScheme.surfaceVariant,
-        child: Column(
+        child: Row(
           children: [
-            Container(
-              margin: const EdgeInsets.all(kDefaultPadding),
-              padding: const EdgeInsets.all(kDefaultPadding),
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.surface,
-                  border: Border.all(
-                    color: Theme.of(context).dividerColor,
-                    width: 1,
-                  ),
-                  borderRadius: BorderRadius.circular(kDefaultPadding)),
-              child: Row(
-                children: [
-                  ValueListenableBuilder(
-                    valueListenable: isTablet,
-                    builder: (BuildContext context, bool value, Widget? child) {
-                      return InkWell(
-                        onTap: !value
-                            ? null
-                            : () {
-                                isTablet.value = !isTablet.value;
-                              },
-                        child: Container(
-                          padding: const EdgeInsets.all(kDefaultPadding / 4),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary.withOpacity(isTablet.value ? 0 : .5),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: const Icon(
-                            Icons.phone_android_outlined,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(width: kDefaultPadding / 2),
-                  ValueListenableBuilder(
-                    valueListenable: isTablet,
-                    builder: (BuildContext context, bool value, Widget? child) {
-                      return InkWell(
-                        onTap: value
-                            ? null
-                            : () {
-                                isTablet.value = !isTablet.value;
-                              },
-                        child: Container(
-                          padding: const EdgeInsets.all(kDefaultPadding / 4),
-                          decoration: BoxDecoration(
-                            color:
-                                Theme.of(context).colorScheme.primary.withOpacity(!isTablet.value ? 0 : .5),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: const Icon(
-                            Icons.tablet_mac_outlined,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  const Spacer(),
-                  const SizedBox(width: kDefaultPadding / 2),
-                  InkWell(
-                    onTap: () {
-                      context.read<MenuCubit>().updateThemeConfiguration(
-                            menu.theme.copyWith(
-                              brightness: isDark ? Brightness.light : Brightness.dark,
-                            ),
-                          );
-                    },
-                    child: Icon(
-                      !isDark ? FeatherIcons.moon : FeatherIcons.sun,
-                    ),
-                  )
-                ],
-              ),
-            ),
             Expanded(
                 child: Stack(
               children: [
@@ -162,7 +87,81 @@ class _MenuPreviewSectionState extends State<MenuPreviewSection> {
                   ),
                 ).padding,
               ],
-            ))
+            )),
+            Container(
+              margin: const EdgeInsets.all(kDefaultPadding),
+              padding: const EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  border: Border.all(
+                    color: Theme.of(context).dividerColor,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(kDefaultPadding)),
+              child: Column(
+                children: [
+                  ValueListenableBuilder(
+                    valueListenable: isTablet,
+                    builder: (BuildContext context, bool value, Widget? child) {
+                      return InkWell(
+                        onTap: !value
+                            ? null
+                            : () {
+                                isTablet.value = !isTablet.value;
+                              },
+                        child: Container(
+                          padding: const EdgeInsets.all(kDefaultPadding / 4),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.primary.withOpacity(isTablet.value ? 0 : .5),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Icon(
+                            Icons.phone_android_outlined,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: kDefaultPadding / 2),
+                  ValueListenableBuilder(
+                    valueListenable: isTablet,
+                    builder: (BuildContext context, bool value, Widget? child) {
+                      return InkWell(
+                        onTap: value
+                            ? null
+                            : () {
+                                isTablet.value = !isTablet.value;
+                              },
+                        child: Container(
+                          padding: const EdgeInsets.all(kDefaultPadding / 4),
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(context).colorScheme.primary.withOpacity(!isTablet.value ? 0 : .5),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Icon(
+                            Icons.tablet_mac_outlined,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: () {
+                      context.read<MenuCubit>().updateThemeConfiguration(
+                            menu.theme.copyWith(
+                              brightness: isDark ? Brightness.light : Brightness.dark,
+                            ),
+                          );
+                    },
+                    child: Icon(
+                      !isDark ? FeatherIcons.moon : FeatherIcons.sun,
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ));
   }
