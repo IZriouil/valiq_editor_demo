@@ -19,11 +19,6 @@ class MenuService {
       // convert to MenuModel
       return MenuModel.fromSnapshot(snapshot);
     });
-    // Simulate a 2 second delay then return a MenuModel mock object
-    // await Future.delayed(const Duration(seconds: 2));
-    yield MenuModel.mock();
-    // await Future.delayed(const Duration(seconds: 20));
-    // yield MenuModel.mock();
   }
 
   Future<MenuModel?> getMenu(String id, {bool fake = false}) async {
